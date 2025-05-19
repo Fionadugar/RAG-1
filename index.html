@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zona de Proyectos - IES Gregorio Prieto</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- INICIO -->
+  <div id="inicio">
+    <header class="cabecera">
+      <div class="logo-y-titulo">
+        <img src="img/logo.png" alt="Logo del IES" class="logo-inicio" />
+        <div class="titulo">
+          <h1>Bienvenido al IES Gregorio Prieto</h1>
+          <h2>Zona de Proyectos Escolares</h2>
+        </div>
+      </div>
+    </header>
+
+    <main class="formulario">
+      <div class="form-box">
+        <div class="logo-fondo"></div>
+        <h3>Accede a tus proyectos</h3>
+        <input type="text" id="nombre" placeholder="Nombre completo" />
+        <input type="text" id="datos" placeholder="Curso / Clase" />
+        <button onclick="acceder()">Entrar</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- CONTENIDO PRINCIPAL OCULTO HASTA DARLE A ENTRAR -->
+  <div id="contenido" style="display: none;">
+    <header class="cabecera">
+      <div class="titulo">
+        <h1>Proyectos del IES Gregorio Prieto</h1>
+        <h2>Innovación y Creatividad en Educación</h2>
+      </div>
+    </header>
+
+    <main class="proyectos">
+      <section class="proyecto">
+        <img src="img/proyecto2.jpg" alt="Proyecto STEAM" />
+        <h3>Proyectos STEAM</h3>
+        <p>Implementación de la metodología STEAM en diversas asignaturas...</p>
+      </section>
+
+      <section class="proyecto">
+        <a href="https://somosdelprieto.com/index.php/aula-ateca/" target="_blank">
+          <img src="img/aula-ateca.jpg" alt="Aula ATECA" />
+        </a>
+        <h3>Aula ATECA</h3>
+        <p>Espacio equipado con tecnología puntera...</p>
+      </section>
+
+      <section class="proyecto">
+        <a href="https://somosdelprieto.com/index.php/portada/proyectos-2/erasmus-2/" target="_blank">
+          <img src="img/erasmus.jpg" alt="Proyecto Erasmus+" />
+        </a>
+        <h3>Proyecto Erasmus+</h3>
+        <p>Intercambios educativos con centros europeos...</p>
+      </section>
+
+      <section class="proyecto">
+        <a href="https://somosdelprieto.com/index.php/portada/proyectos-2/programa-avanza/" target="_blank">
+          <img src="img/avanza.jpg" alt="Programa Avanza" />
+        </a>
+        <h3>Programa Avanza</h3>
+        <p>Atención personalizada a estudiantes con altas capacidades...</p>
+      </section>
+
+      <section class="proyecto">
+        <a href="https://somosdelprieto.com/index.php/portada/proyectos-2/centro-etwinning/" target="_blank">
+          <img src="img/etwinning.jpg" alt="Centro eTwinning" />
+        </a>
+        <h3>Centro eTwinning</h3>
+        <p>Participación en proyectos colaborativos digitales...</p>
+      </section>
+    </main>
+
+    <section class="galeria">
+      <h2>Galería de Proyectos</h2>
+      <div class="imagenes-galeria">
+        <img src="img/proyecto2.jpg" alt="Foto STEAM" />
+        <img src="img/aula-ateca.jpg" alt="Foto Aula ATECA" />
+        <img src="img/erasmus.jpg" alt="Foto Erasmus+" />
+        <img src="img/avanza.jpg" alt="Foto Programa Avanza" />
+        <img src="img/etwinning.jpg" alt="Foto Centro eTwinning" />
+      </div>
+    </section>
+
+    <section class="noticias">
+      <h2>Noticias Destacadas</h2>
+      <div class="noticia">
+        <button class="titulo-noticia">🧪 Talleres STEAM en Primaria</button>
+        <div class="contenido-noticia">
+          <p>Estudiantes de secundaria organizaron actividades prácticas...</p>
+        </div>
+      </div>
+      <div class="noticia">
+        <button class="titulo-noticia">🌍 Proyecto Erasmus+ en Alemania</button>
+        <div class="contenido-noticia">
+          <p>Intercambio cultural y de buenas prácticas educativas...</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="pie">
+      <p>&copy; 2025 IES Gregorio Prieto - Valdepeñas</p>
+    </footer>
+  </div>
+
+  <script>
+    function acceder() {
+      document.getElementById('inicio').style.display = 'none';
+      document.getElementById('contenido').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
+
