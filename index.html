@@ -105,18 +105,6 @@
         </div>
       </div>
     </section>
- <!-- NUEVO: ChatBot -->
-    <section class="asistente">
-      <h2>🤖 Asistente Virtual Escolar</h2>
-      <div class="chat-container">
-        <div class="messages" id="messages"></div>
-        <div class="input-area">
-          <input type="text" id="userInput" placeholder="Escribe tu pregunta..."/>
-          <button id="sendBtn" disabled>Enviar</button>
-        </div>
-      </div>
-    </section>
-
     <footer class="pie">
       <p>&copy; 2025 IES Gregorio Prieto - Valdepeñas</p>
     </footer>
@@ -132,49 +120,6 @@
       <p>&copy; 2025 IES Gregorio Prieto - Valdepeñas</p>
     </footer>
   </div>
-  <!-- Script JavaScript -->
-  <script>
-    function acceder() {
-      document.getElementById('inicio').style.display = 'none';
-      document.getElementById('contenido').style.display = 'block';
-    }
-
-    const messagesDiv = document.getElementById("messages");
-    const userInput = document.getElementById("userInput");
-    const sendBtn = document.getElementById("sendBtn");
-
-    userInput.addEventListener("input", () => {
-      sendBtn.disabled = userInput.value.trim() === "";
-    });
-
-    sendBtn.addEventListener("click", async () => {
-      const userMessage = userInput.value.trim();
-      if (!userMessage) return;
-
-      addMessage(userMessage, "user");
-      userInput.value = "";
-      sendBtn.disabled = true;
-
-      try {
-        const response = await fetch("http://localhost:3000/api/v1/workspace/dam/thread/Prueba/Chat", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer Q3BD5JY-ASFMBXQ-G5CC63S-P8DXSFY"
-          },
-          body: JSON.stringify({ message: userMessage, mode: "chat", user_id: 1 })
-        });
-
-        const data = await response.json();
-        if (data.textResponse) {
-          addMessage(data.textResponse, "bot");
-        } else {
-          addMessage("Error en la respuesta del servidor", "bot");
-        }
-      } catch (error) {
-        addMessage("Error de conexión", "bot");
-      }
-    });
   <script>
     function acceder() {
       document.getElementById('inicio').style.display = 'none';
