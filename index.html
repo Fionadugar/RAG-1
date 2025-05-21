@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Zona de Proyectos - IES Gregorio Prieto</title>
   <link rel="stylesheet" href="style.css"/>
-</head>
+<script type="text/javascript" src="http://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=LDBlCRMyqp9Z84cBlvL11bCL_yA01Owhcmc1w2_gIKmaHQKsZ3q6YMyRMSHUG8hZT-QTtrQwkrmmLvzTP04oIQ" charset="UTF-8"></script></head>
 <body>
   <!-- INICIO -->
   <div id="inicio">
@@ -117,6 +118,101 @@
       document.getElementById('contenido').style.display = 'block';
     }
   </script>
+ <script>
+  function toggleChatbot() {
+    const box = document.getElementById("chatbot-box");
+    box.style.display = box.style.display === "none" ? "flex" : "none";
+  }
+
+  function enviarMensaje() {
+    const input = document.getElementById("chatbot-input");
+    const mensajes = document.getElementById("chatbot-mensajes");
+    const textoUsuario = input.value.trim();
+    if (!textoUsuario) return;
+
+    mensajes.innerHTML += `<p><strong>Tú:</strong> ${textoUsuario}</p>`;
+    input.value = "";
+
+    let respuesta = "Lo siento, no entendí la pregunta.";
+
+    const pregunta = textoUsuario.toLowerCase();
+
+    // Respuestas según palabras clave
+    if (pregunta.includes("steam")) {
+      respuesta = "El proyecto STEAM integra ciencia, tecnología, ingeniería, arte y matemáticas para fomentar el aprendizaje práctico e interdisciplinario.";
+    } else if (pregunta.includes("ateca")) {
+      respuesta = "El aula ATECA está equipada con tecnología avanzada (realidad virtual, impresión 3D, robótica) para mejorar la formación profesional.";
+    } else if (pregunta.includes("erasmus")) {
+      respuesta = "El Erasmus+ permite a alumnos y profesores participar en intercambios educativos y prácticas en otros países de Europa.";
+    } else if (pregunta.includes("avanza")) {
+      respuesta = "El Programa Avanza apoya a estudiantes con altas capacidades o motivación especial con recursos y actividades extra.";
+    } else if (pregunta.includes("etwinning")) {
+      respuesta = "eTwinning permite a los centros educativos trabajar en proyectos colaborativos online con otros países europeos.";
+    } else if (pregunta.includes("proyectos")) {
+      respuesta = "Los proyectos del IES Gregorio Prieto son iniciativas educativas que complementan el aprendizaje, como STEAM, ATECA, Erasmus+, Avanza, eTwinning y más. Promueven la innovación, el trabajo en equipo, el uso de tecnología y el contacto con Europa.";
+    } else if (pregunta.includes("qué hay") || pregunta.includes("qué tiene")) {
+      respuesta = "El centro participa en muchos proyectos: aulas tecnológicas (ATECA), intercambios europeos (Erasmus+), proyectos colaborativos (eTwinning), iniciativas de innovación (STEAM), apoyo a talentos (Avanza) y más.";
+    } else if (pregunta.includes("hola") || pregunta.includes("buenas")) {
+      respuesta = "¡Hola! ¿Sobre qué proyecto del IES Gregorio Prieto te gustaría saber más? Puedes preguntar por STEAM, ATECA, Erasmus+, Avanza, eTwinning o sobre todos en general.";
+    }
+
+    // Mostrar respuesta con retardo
+    setTimeout(() => {
+      mensajes.innerHTML += `<p><strong>Asistente:</strong> ${respuesta}</p>`;
+      mensajes.scrollTop = mensajes.scrollHeight;
+    }, 500);
+  }
+</script>
+  <!-- Asistente Virtual -->
+<div id="chatbot-button" onclick="toggleChatbot()">🤖</div>
+
+<div id="chatbot-box" style="display: none;">
+  <div id="chatbot-header">Asistente Virtual
+    <button onclick="toggleChatbot()">✖</button>
+  </div>
+  <div id="chatbot-mensajes"></div>
+  <input type="text" id="chatbot-input" placeholder="Escribe tu pregunta..." onkeydown="if(event.key === 'Enter') enviarMensaje()" />
+</div>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
 </body>
 </html>
+
+
 
